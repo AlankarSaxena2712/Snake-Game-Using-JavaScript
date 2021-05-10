@@ -3,7 +3,7 @@ const foodSound = new Audio('music/food.mp3');
 const gameOverSound = new Audio('music/gameover.mp3');
 const moveSound = new Audio('music/move.mp3');
 const musicSound = new Audio('music/music.mp3');
-let speed = 10;
+let speed = 6;
 let score = 0;
 let hiscore = localStorage.getItem('hiscore');
 let lastPaintTime = 0;
@@ -14,6 +14,13 @@ food = {x:6, y:7};
 
 function main(ctime) {
     window.requestAnimationFrame(main);
+    if (score < 10) {
+        speed = 6;
+    } else if (score >= 10 && score < 25) {
+        speed = 8;
+    } else {
+        speed = 10;
+    }
     if ((ctime - lastPaintTime)/1000 < 1/speed) {
         return;
     }
@@ -107,7 +114,7 @@ window.addEventListener('keydown', e => {
             inputDir.x = 0;
             inputDir.y = -1;
             break;
-            case 'ArrowDown':
+        case 'ArrowDown':
             inputDir.x = 0;
             inputDir.y = 1;
             break;
@@ -123,3 +130,25 @@ window.addEventListener('keydown', e => {
             break;
     }
 })
+
+function goUp() {
+    var event = new Event("keydown");
+    event.key = "ArrowUp";
+    window.dispatchEvent(event);
+}
+
+function goDown() {
+    var event = new Event("keydown");
+    event.key = "ArrowDown";
+    window.dispatchEvent(event);
+}
+function goLeft() {
+    var event = new Event("keydown");
+    event.key = "ArrowLeft";
+    window.dispatchEvent(event);
+}
+function goRight() {
+    var event = new Event("keydown");
+    event.key = "ArrowRight";
+    window.dispatchEvent(event);
+}

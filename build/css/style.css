@@ -15,24 +15,6 @@
     align-items: center;
 }
 
-#scoreBox {
-    position: absolute;
-    top: 9px;
-    right: 130px;
-    font-size: 39px;
-    font-weight: bold;
-    font-family: 'New Tegomin', 'serif';
-}
-
-#hiScoreBox {
-    position: absolute;
-    top: 60px;
-    right: 130px;
-    font-size: 39px;
-    font-weight: bold;
-    font-family: 'New Tegomin', 'serif';
-}
-
 #board {
     background: linear-gradient(rgb(146, 233, 146), rgb(243, 243, 111));
     width: 90vmin;
@@ -60,4 +42,70 @@
     background: linear-gradient(red, purple);
     border: 0.25vmin solid white;
     border-radius: 8px;
+}
+
+@media screen and (max-width: 450px) {
+    .arrow {
+        position: absolute;
+        bottom: -60px;   
+        display: grid;
+        grid-template-columns: repeat(3, 2fr);
+        grid-template-rows: repeat(2, 2fr);
+    }
+    
+    #up, #down, #left, #right {
+        cursor: pointer;
+        height: 60px;
+        width: 60px;    
+        border: 0.25vmin solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: coral;
+        font-family: 'New Tegomin', 'serif';
+        font-weight: bold;
+        border-radius: 7px;
+    }
+
+    #scoreBox {
+        position: absolute;
+        top: 9px;
+        width: 100vw;
+        font-size: 39px;
+        font-weight: bold;
+        font-family: 'New Tegomin', 'serif';
+    }
+    
+    #hiScoreBox {
+        position: absolute;
+        top: 60px;
+        width: 100vw;
+        font-size: 39px;
+        font-weight: bold;
+        font-family: 'New Tegomin', 'serif';
+    }
+}
+
+@media screen and (min-width: 451px) {
+    .arrow {
+        display: none;
+    }
+    
+    #scoreBox {
+        position: absolute;
+        top: 9px;
+        right: 130px;
+        font-size: 39px;
+        font-weight: bold;
+        font-family: 'New Tegomin', 'serif';
+    }
+
+    #hiScoreBox {
+        position: absolute;
+        top: 60px;
+        right: 130px;
+        font-size: 39px;
+        font-weight: bold;
+        font-family: 'New Tegomin', 'serif';
+    }
 }
